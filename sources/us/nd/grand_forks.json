@@ -1,0 +1,31 @@
+{
+    "coverage": {
+        "US Census": {
+            "geoid": "38035",
+            "name": "Grand Forks County",
+            "state": "North Dakota"
+        },
+        "country": "us",
+        "state": "nd",
+        "county": "Grand Forks"
+    },
+    "data": "http://www.gfgis.com/arcgis/rest/services/Public_Layers/AddressPoints/MapServer/0",
+    "type": "ESRI",
+    "conform": {
+        "type": "geojson",
+        "number": {
+            "function": "regexp",
+            "field": "addrnum",
+            "pattern": "^([0-9]+)( .*)?",
+            "replace": "$1"
+        },
+        "street": {
+            "function": "regexp",
+            "field": "fulladdr",
+            "pattern": "^(?:[0-9]+(?: ([0-9]+|[A-Z]|[A-Z]-?[0-9]+|[0-9]+[A-Z]|BLDG [0-9]|MAIN))?) (.*)",
+            "replace": "$1"
+        },
+        "unit": "unitid",
+        "city": "municipality"
+    }
+}
